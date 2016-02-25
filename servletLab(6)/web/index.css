@@ -1,0 +1,28 @@
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin: 10px;
+}
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+
+.content {
+    width: 350px;
+    height: 200px;
+    background-color: azure;
+    padding: 30px;
+}
+
+#result_wrapper {
+    margin-left: 50px;
+    font-weight: bold;
+}

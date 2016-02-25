@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="index.css"/>
+    <script src="jquery-1.8.3.js"></script>
+    <script>
+        $(document).on("submit", "#someForm", function (event) {
+            var $form = $(this);
+
+            $.post($form.attr("action"), $form.serialize(), function (responseText) {
+                $("#result").text(responseText);
+            });
+            event.preventDefault();
+        });
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="content">
+        <form id="someForm" action="calculate" method="POST">
+            <ul>
+                <li>
+                    <label for="xValueId">Enter X</label>
+                    <input type="text" name="xValue" id="xValueId">
+                </li>
+                <li>
+                    <label for="chooseFuncId">Choose function</label>
+                    <select name="function" id="chooseFuncId">
+                        <option value="sin">sin(x)</option>
+                        <option value="cos">cos(x)</option>
+                        <option value="tan">tg(x)</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="degreesId">Degrees</label>
+                    <input type="radio" name="measure" id="degreesId" value="Degrees" checked>
+                    <label for="radiansId">Radians</label>
+                    <input type="radio" name="measure" id="radiansId" value="Radians">
+                </li>
+                <li>
+                    <label for="accuracyId">Accuracy</label>
+                    <input type="text" name="accuracy" id="accuracyId">
+                </li>
+
+                <li>
+                    <input type="submit" value="Calculate">
+                </li>
+            </ul>
+        </form>
+        <div id="result_wrapper">
+            <label for="result">Result:</label>
+            <div id="result"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
